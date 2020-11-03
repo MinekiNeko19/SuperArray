@@ -23,9 +23,11 @@ public class SuperArray {
         return data[index];
     }
 
-    // public String set(int index, String element) {
-
-    // }
+    public String set(int index, String element) {
+        String old = data[index];
+        data[index] = element;
+        return old;
+    }
 
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
@@ -33,5 +35,6 @@ public class SuperArray {
         System.out.println(fruits.add("apples"));
         System.out.println(fruits.size());
         System.out.println(fruits.get(0));
+        System.out.println(fruits.set(0,"oranges"));
     }
 }
