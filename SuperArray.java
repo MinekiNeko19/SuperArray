@@ -13,10 +13,11 @@ public class SuperArray {
         return size;
     }
 
-    // public boolean add(String str) {
-    //     data[size] = str;
-    //     size++;
-    // }
+    public boolean add(String str) {
+        data[size] = str;
+        size++;
+        return true;
+    }
 
     // public String get(int index) {
     //     return data[index];
@@ -28,6 +29,8 @@ public class SuperArray {
 
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
+        System.out.println(fruits.size());
+        fruits.add("apples");
         System.out.println(fruits.size());
     }
 }
