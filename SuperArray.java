@@ -14,6 +14,9 @@ public class SuperArray {
     }
 
     public boolean add(String str) {
+        if (data.length==size) {
+            resize();
+        }
         data[size] = str;
         size++;
         return true;
@@ -29,6 +32,15 @@ public class SuperArray {
         return old;
     }
 
+    private void resize() {
+        String[] bigger = new String[size+2];
+        for (int i = 0; i < data.length; i++) {
+            bigger[i]=data[i];
+        }
+        data = bigger;
+        size++;
+    }
+
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
         System.out.println(fruits.size());
@@ -36,5 +48,16 @@ public class SuperArray {
         System.out.println(fruits.size());
         System.out.println(fruits.get(0));
         System.out.println(fruits.set(0,"oranges"));
+        System.out.println(fruits.add("apples"));
+        System.out.println(fruits.add("dragonfruit"));
+        System.out.println(fruits.add("grape"));
+        System.out.println(fruits.add("persimmon"));
+        System.out.println(fruits.add("pear"));
+        System.out.println(fruits.add("mango"));
+        System.out.println(fruits.add("tomato"));
+        System.out.println(fruits.add("banana"));
+        System.out.println(fruits.add("watermelon"));
+        System.out.println(fruits.add("pineapple"));
+
     }
 }
