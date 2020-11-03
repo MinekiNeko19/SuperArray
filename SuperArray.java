@@ -33,12 +33,11 @@ public class SuperArray {
     }
 
     private void resize() {
-        String[] bigger = new String[size+2];
+        String[] bigger = new String[data.length+2];
         for (int i = 0; i < data.length; i++) {
             bigger[i]=data[i];
         }
         data = bigger;
-        size++;
     }
 
     public static void main(String[] args) {
@@ -58,6 +57,9 @@ public class SuperArray {
         System.out.println(fruits.add("banana"));
         System.out.println(fruits.add("watermelon"));
         System.out.println(fruits.add("pineapple"));
+        for (int i = 0; i < fruits.size();i++) {
+            System.out.println(fruits.get(i));
+        }
 
     }
 }
