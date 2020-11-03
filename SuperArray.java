@@ -30,7 +30,7 @@ public class SuperArray {
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
         System.out.println(fruits.size());
-        fruits.add("apples");
+        System.out.println(fruits.add("apples"));
         System.out.println(fruits.size());
     }
 }
