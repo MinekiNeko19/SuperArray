@@ -19,9 +19,9 @@ public class SuperArray {
         return true;
     }
 
-    // public String get(int index) {
-    //     return data[index];
-    // }
+    public String get(int index) {
+        return data[index];
+    }
 
     // public String set(int index, String element) {
 
@@ -32,5 +32,6 @@ public class SuperArray {
         System.out.println(fruits.size());
         System.out.println(fruits.add("apples"));
         System.out.println(fruits.size());
+        System.out.println(fruits.get(0));
     }
 }
