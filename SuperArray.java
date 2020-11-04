@@ -40,6 +40,10 @@ public class SuperArray {
         data = bigger;
     }
 
+    public boolean isEmpty() {
+        return size==0;
+    }
+
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
         System.out.println(fruits.size());
@@ -60,6 +64,7 @@ public class SuperArray {
         for (int i = 0; i < fruits.size();i++) {
             System.out.println(fruits.get(i));
         }
-
+        SuperArray words = new SuperArray();
+        System.out.println(words.isEmpty());
     }
 }
