@@ -12,7 +12,7 @@ public class SuperArray {
             data = new String[initialCapacity];
             size = 0;
         }
-        
+
     // methods
     public int size() {
         return size;
@@ -72,6 +72,18 @@ public class SuperArray {
         return list;
     }
 
+    public void add(int index, String element) {
+        String replace = data[index];
+        String store = "";
+        data[index] = element;
+        for (int i = index+1; i < size; i++) {
+            store = data[i];
+            data[i] = replace;
+            replace = store;
+        }
+        data[size] = replace;
+        size++;
+    }
     
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
@@ -104,7 +116,7 @@ public class SuperArray {
         // System.out.println(fruits.contains("banana"));
         // System.out.println(fruits.contains("turkey"));
         // System.out.println(words.contains("apple"));
-        SuperArray dogs = new SuperArray(12);
-        System.out.println(dogs.size());
+        fruits.add(8, "rambutan");
+        System.out.println(fruits.toString());  
     }
 }
