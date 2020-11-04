@@ -49,6 +49,15 @@ public class SuperArray {
         data = new String[10];
     }
 
+    public boolean contains(String s) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(s)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
         System.out.println(fruits.size());
@@ -71,8 +80,10 @@ public class SuperArray {
         }
         SuperArray words = new SuperArray();
         System.out.println(words.isEmpty());
-        fruits.clear();
-        System.out.println(fruits.size());
-        System.out.println(fruits.get(0));
+        // fruits.clear();
+        // System.out.println(fruits.size());
+        // System.out.println(fruits.get(0));
+        System.out.println(fruits.contains("banana"));
+        System.out.println(fruits.contains("turkey"));
     }
 }
