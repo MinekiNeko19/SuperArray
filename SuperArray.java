@@ -8,6 +8,11 @@ public class SuperArray {
         size = 0;
     }
 
+    public SuperArray(int initialCapacity) {
+            data = new String[initialCapacity];
+            size = 0;
+        }
+        
     // methods
     public int size() {
         return size;
@@ -67,10 +72,7 @@ public class SuperArray {
         return list;
     }
 
-    public SuperArray(int initialCapacity) {
-        data = new String[initialCapacity];
-        size = 0;
-    }
+    
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
         System.out.println(fruits.size());
@@ -88,9 +90,9 @@ public class SuperArray {
         fruits.add("banana");
         fruits.add("watermelon");
         fruits.add("pineapple");
-        for (int i = 0; i < fruits.size();i++) {
-            System.out.println(fruits.get(i));
-        }
+        // for (int i = 0; i < fruits.size();i++) {
+        //     System.out.println(fruits.get(i));
+        // }
         SuperArray words = new SuperArray();
         System.out.println(words.isEmpty());
         // fruits.clear();
@@ -102,5 +104,7 @@ public class SuperArray {
         // System.out.println(fruits.contains("banana"));
         // System.out.println(fruits.contains("turkey"));
         // System.out.println(words.contains("apple"));
+        SuperArray dogs = new SuperArray(12);
+        System.out.println(dogs.size());
     }
 }
