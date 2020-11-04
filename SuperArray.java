@@ -44,6 +44,11 @@ public class SuperArray {
         return size==0;
     }
 
+    public void clear() {
+        size = 0; 
+        data = new String[10];
+    }
+
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
         System.out.println(fruits.size());
@@ -66,5 +71,8 @@ public class SuperArray {
         }
         SuperArray words = new SuperArray();
         System.out.println(words.isEmpty());
+        fruits.clear();
+        System.out.println(fruits.size());
+        System.out.println(fruits.get(0));
     }
 }
