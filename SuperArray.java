@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class SuperArray {
     private String[] data;
     private int size; // the current size
@@ -110,6 +113,14 @@ public class SuperArray {
         }
         return -1;
     }
+
+    public String[] toArray() {
+        String[] arr = new String[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = data[i];
+        } 
+        return arr;
+    }
     
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
@@ -148,5 +159,7 @@ public class SuperArray {
         System.out.println(fruits.toString());
         System.out.println(fruits.indexOf("dragonfruit"));
         System.out.println(fruits.indexOf("applesauce"));
+        String[] fruitArray = fruits.toArray();
+        System.out.println(Arrays.toString(fruitArray));
     }
 }
