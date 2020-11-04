@@ -84,6 +84,21 @@ public class SuperArray {
         data[size] = replace;
         size++;
     }
+
+    public String remove(int index) {
+        String gone = data[index];
+        String replace = data[size-1];
+        String store = "";
+        data[size-1] = null;
+        for (int i = size-2; i > index; i--) {
+            store = data[i];
+            data[i]=replace;
+            replace = store;
+        }
+        data[index] = replace;
+        size--;
+        return gone;
+    }
     
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
@@ -117,6 +132,8 @@ public class SuperArray {
         // System.out.println(fruits.contains("turkey"));
         // System.out.println(words.contains("apple"));
         fruits.add(8, "rambutan");
-        System.out.println(fruits.toString());  
+        System.out.println(fruits.toString());
+        System.out.println(fruits.remove(8));
+        System.out.println(fruits.toString());
     }
 }
