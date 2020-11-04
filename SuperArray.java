@@ -58,6 +58,15 @@ public class SuperArray {
         return false;
     }
 
+    public String toString() {
+        String list = "[" + data[0];
+        for (int i = 1; i < size; i++) {
+            list += ", " + data[i];
+        }
+        list += "]";
+        return list;
+    }
+
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
         System.out.println(fruits.size());
@@ -83,7 +92,11 @@ public class SuperArray {
         // fruits.clear();
         // System.out.println(fruits.size());
         // System.out.println(fruits.get(0));
+
+        System.out.println(fruits.toString());
+
         System.out.println(fruits.contains("banana"));
         System.out.println(fruits.contains("turkey"));
+        System.out.println(words.contains("apple"));
     }
 }
