@@ -99,6 +99,17 @@ public class SuperArray {
         size--;
         return gone;
     }
+
+    public int indexOf(String s) {
+        if (this.contains(s)) {
+            for (int i = 0; i < size;i++) {
+                if (data[i].equals(s)) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
     
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
@@ -135,5 +146,7 @@ public class SuperArray {
         System.out.println(fruits.toString());
         System.out.println(fruits.remove(8));
         System.out.println(fruits.toString());
+        System.out.println(fruits.indexOf("dragonfruit"));
+        System.out.println(fruits.indexOf("applesauce"));
     }
 }
