@@ -18,10 +18,17 @@ public class Demo{
         SuperArray test = findOverlap(arr1,arr2);
         System.out.println(test.toString());
 
-        System.out.println(arr2.lastIndexOf("2"));
-        SuperArray test2 = new SuperArray();
-        test2.add("9"); test2.add("2"); test2.add("4");
-        System.out.println(test2.equals(arr2));
+        // HW
+        // // Testing new SuperArray methods
+        // System.out.println(arr2.lastIndexOf("2"));
+        // SuperArray test2 = new SuperArray();
+        // test2.add("9"); test2.add("2"); test2.add("4");
+        // System.out.println(test2.equals(arr2));
+
+        // Testing zip
+        // System.out.println(arr1.toString());
+        // System.out.println(arr2.toString());
+        // System.out.print(zip(arr1,arr2).toString());
     }
 
     public static void removeDuplicates(SuperArray s){  
@@ -46,5 +53,17 @@ public class Demo{
         return shared;
     }
 
+    public static SuperArray zip(SuperArray a, SuperArray b) {
+        SuperArray zipped = new SuperArray();
+        for (int i = 0; i < Math.max(a.size(),b.size());i++) {
+            if (i < a.size()) {
+                zipped.add(a.get(i));
+            }
+            if (i < b.size()) {
+                zipped.add(b.get(i));
+            }
+        }
+        return zipped;
+    }
 
   }
