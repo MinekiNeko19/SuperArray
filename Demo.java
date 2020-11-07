@@ -32,9 +32,9 @@ public class Demo{
 
     public static SuperArray findOverlap(SuperArray a, SuperArray b) {
         SuperArray shared = new SuperArray();
-        for (int i = 0; i < (Math.min(a.size(),b.size())); i++) {
-            if (a.contains(b.get(i))) {
-                shared.add(b.get(i));
+        for (int i = 0; i < (Math.max(a.size(),b.size())); i++) {
+            if (b.contains(a.get(i))) {
+                shared.add(a.get(i));
             }
         }
         removeDuplicates(shared);
