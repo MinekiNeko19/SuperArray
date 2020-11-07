@@ -130,6 +130,19 @@ public class SuperArray {
         }
         return -1;
     }
+
+    public boolean equals(SuperArray other) {
+        if (this.size()==other.size()) {
+            for (int i = 0; i < size; i++) {
+                if (!data[i].equals(other.get(i))) {
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
