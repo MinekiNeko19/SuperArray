@@ -19,6 +19,9 @@ public class Demo{
         System.out.println(test.toString());
 
         System.out.println(arr2.lastIndexOf("2"));
+        SuperArray test2 = new SuperArray();
+        test2.add("9"); test2.add("2"); test2.add("4");
+        System.out.println(test2.equals(arr2));
     }
 
     public static void removeDuplicates(SuperArray s){  
