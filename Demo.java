@@ -16,7 +16,9 @@ public class Demo{
         arr2.add("0");arr2.add("4");arr2.add("2");
         arr2.add("2");arr2.add("9");
         SuperArray test = findOverlap(arr1,arr2);
-        System.out.print(test.toString());
+        System.out.println(test.toString());
+
+        System.out.println(arr2.lastIndexOf("2"));
     }
 
     public static void removeDuplicates(SuperArray s){  
