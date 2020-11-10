@@ -12,9 +12,13 @@ public class SuperArray {
     }
 
     public SuperArray(int initialCapacity) {
+        if (initialCapacity > 0) {
             data = new String[initialCapacity];
-            size = 0;
+        } else {
+            throw new IllegalArgumentException("Initial capacity " + initialCapacity + " cannot be negative.");
         }
+        size = 0;
+    }
 
     // methods
     public int size() {
@@ -183,5 +187,14 @@ public class SuperArray {
         System.out.println(fruits.indexOf("applesauce"));
         String[] fruitArray = fruits.toArray();
         System.out.println(Arrays.toString(fruitArray));
+
+        // Testing exceptions
+        SuperArray exceptional = null;
+        try {
+            exceptional = new SuperArray(-1);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Test");
+            e.printStackTrace();
+        }
     }
 }
