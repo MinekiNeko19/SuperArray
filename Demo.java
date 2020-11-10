@@ -29,6 +29,14 @@ public class Demo{
         // System.out.println(arr1.toString());
         // System.out.println(arr2.toString());
         // System.out.print(zip(arr1,arr2).toString());
+
+        // Testing exception throws
+        // SuperArray exceptional = null;
+        // try {
+        //     exceptional = new SuperArray(-1);
+        // } catch (IllegalArgumentException e) {
+        //     System.out.println("Test");
+        // }
     }
 
     public static void removeDuplicates(SuperArray s){  
