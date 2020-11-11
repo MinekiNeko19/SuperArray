@@ -35,7 +35,11 @@ public class SuperArray {
     }
 
     public String get(int index) {
-        return data[index];
+        if (index > -1 && index < size) {
+            return data[index];
+        } else {
+            throw new IndexOutOfBoundsException("Index " + index + " is not in range");
+        }
     }
 
     public String set(int index, String element) {
@@ -193,8 +197,15 @@ public class SuperArray {
         try {
             exceptional = new SuperArray(-1);
         } catch (IllegalArgumentException e) {
-            System.out.println("Test");
             e.printStackTrace();
+            System.out.println("Test");
+        }
+
+        try {
+            System.out.println(fruits.get(-4));
+        } catch (IndexOutOfBoundsException e) {
+            e.printStackTrace();
+            System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
         }
     }
 }
