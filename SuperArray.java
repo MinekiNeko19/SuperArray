@@ -35,7 +35,7 @@ public class SuperArray {
     }
 
     public String get(int index) {
-        if (index > -1 && index < size) {
+        if (index > -1 || index < size) {
             return data[index];
         } else {
             throw new IndexOutOfBoundsException("Index " + index + " is not in range");
