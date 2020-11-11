@@ -45,10 +45,11 @@ public class SuperArray {
     public String set(int index, String element) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index " + index + " not in range");
-        }
+        } else {
             String old = data[index];
             data[index] = element;
             return old;
+        }
     }
 
     private void resize() {
