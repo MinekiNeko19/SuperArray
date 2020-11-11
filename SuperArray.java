@@ -43,13 +43,12 @@ public class SuperArray {
     }
 
     public String set(int index, String element) {
-        // if (index < 0 || index >= size) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index " + index + " not in range");
+        }
             String old = data[index];
             data[index] = element;
             return old;
-        // } else {
-        //     throw new IndexOutOfBoundsException("Index " + index + "is not in range");
-        // }
     }
 
     private void resize() {
@@ -211,11 +210,11 @@ public class SuperArray {
             System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
         }
 
-        // try {
-        //     System.out.println(fruits.set(100, "kumquat"));
-        // } catch (IndexOutOfBoundsException e) {
-        //     e.printStackTrace();
-        //     System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
-        // }
+        try {
+            System.out.println(fruits.set(11, "kumquat"));
+        } catch (IndexOutOfBoundsException e) {
+            e.printStackTrace();
+            System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
+        }
     }
 }
