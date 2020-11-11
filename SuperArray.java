@@ -105,18 +105,22 @@ public class SuperArray {
     }
 
     public String remove(int index) {
-        String gone = data[index];
-        String replace = data[size-1];
-        String store = "";
-        data[size-1] = null;
-        for (int i = size-2; i > index; i--) {
-            store = data[i];
-            data[i]=replace;
-            replace = store;
-        }
-        data[index] = replace;
-        size--;
-        return gone;
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index " + index + " out of bounds");
+        } else {
+            String gone = data[index];
+            String replace = data[size-1];
+            String store = "";
+            data[size-1] = null;
+            for (int i = size-2; i > index; i--) {
+                store = data[i];
+                data[i]=replace;
+                replace = store;
+            }
+            data[index] = replace;
+            size--;
+            return gone;
+        }  
     }
 
     public int indexOf(String s) {
@@ -223,8 +227,15 @@ public class SuperArray {
         }
 
         try {
-            fruits.add(1230,"kumquat");
+            fruits.add(-3,"kumquat");
             System.out.println(fruits.toString());
+        } catch (IndexOutOfBoundsException e) {
+            e.printStackTrace();
+            System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
+        }
+
+        try {
+            System.out.println(fruits.remove(30));
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
             System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
