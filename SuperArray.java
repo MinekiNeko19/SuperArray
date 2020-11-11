@@ -12,7 +12,7 @@ public class SuperArray {
     }
 
     public SuperArray(int initialCapacity) {
-        if (initialCapacity > 0) {
+        if (initialCapacity >= 0) {
             data = new String[initialCapacity];
         } else {
             throw new IllegalArgumentException("Initial capacity " + initialCapacity + " cannot be negative.");
@@ -36,20 +36,24 @@ public class SuperArray {
 
     public String get(int index) {
         if (index < 0 || index >= size) {
-            return data[index];
-        } else {
             throw new IndexOutOfBoundsException("Index " + index + " is not in range");
+        } else {
+            return data[index];
         }
     }
 
     public String set(int index, String element) {
-        String old = data[index];
-        data[index] = element;
-        return old;
+        // if (index < 0 || index >= size) {
+            String old = data[index];
+            data[index] = element;
+            return old;
+        // } else {
+        //     throw new IndexOutOfBoundsException("Index " + index + "is not in range");
+        // }
     }
 
     private void resize() {
-        String[] bigger = new String[data.length+(data.length)];
+        String[] bigger = new String[data.length+(data.length)+1];
         for (int i = 0; i < data.length; i++) {
             bigger[i]=data[i];
         }
@@ -61,7 +65,7 @@ public class SuperArray {
     }
 
     public void clear() {
-        size = 0; 
+        size = 0;
         data = new String[10];
     }
 
@@ -126,7 +130,7 @@ public class SuperArray {
         String[] arr = new String[size];
         for (int i = 0; i < size; i++) {
             arr[i] = data[i];
-        } 
+        }
         return arr;
     }
 
@@ -151,12 +155,11 @@ public class SuperArray {
             return false;
         }
     }
-    
+
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
         System.out.println(fruits.size());
         fruits.add("apples");
-        fruits.size();
         fruits.get(0);
         fruits.set(0,"oranges");
         fruits.add("apples");
@@ -195,7 +198,7 @@ public class SuperArray {
         // Testing exceptions
         SuperArray exceptional = null;
         try {
-            exceptional = new SuperArray(-1);
+            exceptional = new SuperArray(0);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
             System.out.println("Test");
@@ -207,5 +210,12 @@ public class SuperArray {
             e.printStackTrace();
             System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
         }
+
+        // try {
+        //     System.out.println(fruits.set(100, "kumquat"));
+        // } catch (IndexOutOfBoundsException e) {
+        //     e.printStackTrace();
+        //     System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
+        // }
     }
 }
