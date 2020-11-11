@@ -88,16 +88,20 @@ public class SuperArray {
     }
 
     public void add(int index, String element) {
-        String replace = data[index];
-        String store = "";
-        data[index] = element;
-        for (int i = index+1; i < size; i++) {
-            store = data[i];
-            data[i] = replace;
-            replace = store;
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index " + index + " out of bounds");
+        } else {
+            String replace = data[index];
+            String store = "";
+            data[index] = element;
+            for (int i = index+1; i < size; i++) {
+                store = data[i];
+                data[i] = replace;
+                replace = store;
+            }
+            data[size] = replace;
+            size++;
         }
-        data[size] = replace;
-        size++;
     }
 
     public String remove(int index) {
@@ -213,6 +217,14 @@ public class SuperArray {
 
         try {
             System.out.println(fruits.set(11, "kumquat"));
+        } catch (IndexOutOfBoundsException e) {
+            e.printStackTrace();
+            System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
+        }
+
+        try {
+            fruits.add(1230,"kumquat");
+            System.out.println(fruits.toString());
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
             System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
