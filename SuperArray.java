@@ -1,4 +1,5 @@
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SuperArray {
@@ -97,12 +98,14 @@ public class SuperArray {
             String replace = data[index];
             String store = "";
             data[index] = element;
-            for (int i = index+1; i < size; i++) {
-                store = data[i];
-                data[i] = replace;
-                replace = store;
+            if (index != size()) {
+                for (int i = index+1; i < size; i++) {
+                    store = data[i];
+                    data[i] = replace;
+                    replace = store;
+                }
+                data[size] = replace;
             }
-            data[size] = replace;
             size++;
         }
     }
@@ -170,20 +173,34 @@ public class SuperArray {
     public static void main(String[] args) {
         SuperArray fruits = new SuperArray();
         System.out.println(fruits.size());
-        fruits.add("apples");
+        ArrayList<String> result  = new ArrayList<String>();
+        for(int i = 0; i < 5; i++){
+            double d = Math.random();
+            result.add(""+d);
+            fruits.add(""+d);
+        }
+        System.out.println(result.size());
+        System.out.println(result.toString());
+        System.out.println(fruits.size());
+        System.out.println(fruits.toString());
+        for (int i = 0; i < fruits.size(); i++) {
+            System.out.println(!result.get(i).equals(fruits.get(i)));
+        }
+
+        // fruits.add("apples");
         // fruits.get(0);
         // fruits.set(0,"oranges");
-        fruits.add("apples");
-        fruits.add("dragonfruit");
-        fruits.add("grape");
-        fruits.add("persimmon");
-        fruits.add("pear");
-        fruits.add("mango");
-        fruits.add("tomato");
-        fruits.add("banana");
-        fruits.add("watermelon");
-        fruits.add("pineapple");
-        System.out.println(fruits.size());
+        // fruits.add("apples");
+        // fruits.add("dragonfruit");
+        // fruits.add("grape");
+        // fruits.add("persimmon");
+        // fruits.add("pear");
+        // fruits.add("mango");
+        // fruits.add("tomato");
+        // fruits.add("banana");
+        // fruits.add("watermelon");
+        // fruits.add("pineapple");
+        // System.out.println(fruits.size());
         // for (int i = 0; i < fruits.size();i++) {
         //     System.out.println(fruits.get(i));
         // }
