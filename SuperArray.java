@@ -53,7 +53,7 @@ public class SuperArray {
     }
 
     private void resize() {
-        String[] bigger = new String[data.length+(data.length)+1];
+        String[] bigger = new String[data.length*2+1];
         for (int i = 0; i < data.length; i++) {
             bigger[i]=data[i];
         }
@@ -91,6 +91,9 @@ public class SuperArray {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index " + index + " out of bounds");
         } else {
+            if (data.length==size) {
+                resize();
+            }
             String replace = data[index];
             String store = "";
             data[index] = element;
@@ -168,8 +171,8 @@ public class SuperArray {
         SuperArray fruits = new SuperArray();
         System.out.println(fruits.size());
         fruits.add("apples");
-        fruits.get(0);
-        fruits.set(0,"oranges");
+        // fruits.get(0);
+        // fruits.set(0,"oranges");
         fruits.add("apples");
         fruits.add("dragonfruit");
         fruits.add("grape");
@@ -180,65 +183,66 @@ public class SuperArray {
         fruits.add("banana");
         fruits.add("watermelon");
         fruits.add("pineapple");
+        System.out.println(fruits.size());
         // for (int i = 0; i < fruits.size();i++) {
         //     System.out.println(fruits.get(i));
         // }
-        SuperArray words = new SuperArray();
-        System.out.println(words.isEmpty());
+        // SuperArray words = new SuperArray();
+        // System.out.println(words.isEmpty());
         // fruits.clear();
         // System.out.println(fruits.size());
         // System.out.println(fruits.get(0));
 
-        System.out.println(fruits.toString());
+        // System.out.println(fruits.toString());
 
         // System.out.println(fruits.contains("banana"));
         // System.out.println(fruits.contains("turkey"));
         // System.out.println(words.contains("apple"));
-        fruits.add(8, "rambutan");
-        System.out.println(fruits.toString());
-        System.out.println(fruits.remove(8));
-        System.out.println(fruits.toString());
-        System.out.println(fruits.indexOf("dragonfruit"));
-        System.out.println(fruits.indexOf("applesauce"));
-        String[] fruitArray = fruits.toArray();
-        System.out.println(Arrays.toString(fruitArray));
+        // fruits.add(8, "rambutan");
+        // System.out.println(fruits.toString());
+        // System.out.println(fruits.remove(8));
+        // System.out.println(fruits.toString());
+        // System.out.println(fruits.indexOf("dragonfruit"));
+        // System.out.println(fruits.indexOf("applesauce"));
+        // String[] fruitArray = fruits.toArray();
+        // System.out.println(Arrays.toString(fruitArray));
 
         // Testing exceptions
-        SuperArray exceptional = null;
-        try {
-            exceptional = new SuperArray(0);
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-            System.out.println("Test");
-        }
+        // SuperArray exceptional = null;
+        // try {
+        //     exceptional = new SuperArray(0);
+        // } catch (IllegalArgumentException e) {
+        //     e.printStackTrace();
+        //     System.out.println("Test");
+        // }
 
-        try {
-            System.out.println(fruits.get(-4));
-        } catch (IndexOutOfBoundsException e) {
-            e.printStackTrace();
-            System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
-        }
+        // try {
+        //     System.out.println(fruits.get(-4));
+        // } catch (IndexOutOfBoundsException e) {
+        //     e.printStackTrace();
+        //     System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
+        // }
 
-        try {
-            System.out.println(fruits.set(11, "kumquat"));
-        } catch (IndexOutOfBoundsException e) {
-            e.printStackTrace();
-            System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
-        }
+        // try {
+        //     System.out.println(fruits.set(11, "kumquat"));
+        // } catch (IndexOutOfBoundsException e) {
+        //     e.printStackTrace();
+        //     System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
+        // }
 
-        try {
-            fruits.add(-3,"kumquat");
-            System.out.println(fruits.toString());
-        } catch (IndexOutOfBoundsException e) {
-            e.printStackTrace();
-            System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
-        }
+        // try {
+        //     fruits.add(-3,"kumquat");
+        //     System.out.println(fruits.toString());
+        // } catch (IndexOutOfBoundsException e) {
+        //     e.printStackTrace();
+        //     System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
+        // }
 
-        try {
-            System.out.println(fruits.remove(30));
-        } catch (IndexOutOfBoundsException e) {
-            e.printStackTrace();
-            System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
-        }
+        // try {
+        //     System.out.println(fruits.remove(30));
+        // } catch (IndexOutOfBoundsException e) {
+        //     e.printStackTrace();
+        //     System.out.println("Range of indexes: 0-" + Integer.toString(fruits.size()-1));
+        // }
     }
 }
